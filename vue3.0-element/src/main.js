@@ -4,6 +4,8 @@ import './plugins/element.js'
 import router from './router'
 import axios from 'axios'
 
+// 导入全局样式表
+import './assets/css/global.css'
 // 原型链
 Vue.prototype.$http = axios
 
