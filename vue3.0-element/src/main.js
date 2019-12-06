@@ -9,8 +9,12 @@ import './assets/css/global.css'
 
 // 导入字体图标
 import './assets/fonts/iconfont.css'
-// 原型链
+
+// 原型链-挂载axios
 Vue.prototype.$http = axios
+
+// 配置请求的根路径
+axios.defaults.baseURL = 'http://api.happylay.com:3000/mock/19/'
 
 Vue.config.productionTip = false
 

@@ -8,7 +8,7 @@
           <img src="../assets/logo.png" alt="">
         </div>
         <!-- 登录表单 -->
-        <el-form  :model="loginForm" :rules="loginFormRules" ref="LoginFormRef" label-width="0px" class="login_form">
+        <el-form ref="LoginFormRef" :model="loginForm" :rules="loginFormRules"  label-width="0px" class="login_form">
           <!-- 用户名 -->
           <el-form-item prop="username">
             <!--rules 属性传入约定的验证规则，并将 Form-Item 的 prop 属性设置为需校验的字段名-->
@@ -20,7 +20,7 @@
           </el-form-item>
           <!-- 按钮 -->
            <el-form-item class="btns">
-              <el-button type="primary">登录</el-button>
+              <el-button type="primary"  @click="login">登录</el-button>
               <el-button type="info">重置</el-button>
            </el-form-item>
         </el-form>
@@ -47,6 +47,13 @@ export default {
           { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' }
         ]
       }
+    }
+  },
+  methods: {
+    login () {
+      this.$http.post('login', this.loginForm).then(
+        response => (console.log(response.data))
+      )
     }
   }
 }
