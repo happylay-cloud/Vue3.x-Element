@@ -8,9 +8,10 @@
           <img src="../assets/logo.png" alt="">
         </div>
         <!-- 登录表单 -->
-        <el-form  :model="loginForm" ref="LoginFormRef" label-width="0px" class="login_form">
+        <el-form  :model="loginForm" :rules="loginFormRules" ref="LoginFormRef" label-width="0px" class="login_form">
           <!-- 用户名 -->
           <el-form-item prop="username">
+            <!--rules 属性传入约定的验证规则，并将 Form-Item 的 prop 属性设置为需校验的字段名-->
              <el-input v-model="loginForm.username" prefix-icon="iconfont icon-user"></el-input>
           </el-form-item>
           <!-- 密码 -->
@@ -35,6 +36,16 @@ export default {
       loginForm: {
         username: 'admin',
         password: '123456'
+      },
+      loginFormRules: {
+        username: [
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { min: 3, max: 20, message: '长度在 3 到 20 个字符', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' }
+        ]
       }
     }
   }
