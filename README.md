@@ -13,7 +13,16 @@ npm install -g @vue/cli
 ```
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ````
-#### 创建vue项目
+#### 创建vue3.x项目
 ````
 vue ui
+````
+
+#### 安装依赖
+````
+npm install
+````
+#### 运行项目
+````
+npm run serve
 ````
